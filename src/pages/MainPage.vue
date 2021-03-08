@@ -1,15 +1,56 @@
 <template>
-  <router-view></router-view>
+  <div id="app" class="container">
+    <Header />
+    <Aside />
+    <Section />
+  </div>
 </template>
 
 <script>
+import Header from "../components/header/Header.vue";
+import Aside from "../components/aside/Aside.vue";
+import Section from "../components/section/Section.vue";
+
 export default {
-  name: "App",
-  components: {},
+  name: "MainPage",
+  components: {
+    Header,
+    Aside,
+    Section,
+  },
 };
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  height: 100vh;
+  width: 100%;
+
+  margin: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: 35% 200%;
+  grid-template-rows: 70px 707px;
+  row-gap: 30px;
+  grid-template-areas:
+    "header header"
+    "aside  article";
+}
+@media screen and (max-width: 768px) {
+  .container {
+    display: grid;
+
+    grid-template-areas: "header" "aside" "article";
+    grid-template-rows: 70px 707px;
+  }
+}
+
 *,
 html {
   box-sizing: border-box;
@@ -17,7 +58,6 @@ html {
   padding: 0;
   /* position: relative; */
   height: 100%;
-  width: 100%;
 }
 
 body {

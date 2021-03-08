@@ -1,15 +1,46 @@
 <template>
-  <router-view></router-view>
+  <div id="detail" class="container2">
+    <Header />
+    <Detail />
+    <Comment />
+  </div>
 </template>
 
 <script>
+import Header from "../components/header/Header";
+import Detail from "../components/detail/Detail";
+import Comment from "../components/comment/Comment.vue";
+
 export default {
-  name: "App",
-  components: {},
+  name: "DetailPage",
+  components: {
+    Header,
+    Detail,
+    Comment,
+  },
 };
 </script>
 
 <style>
+#detail {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  height: 100vh;
+  width: 100%;
+}
+.container2 {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 70px 211px 211px;
+  row-gap: 30px;
+  grid-template-areas:
+    "header"
+    "article"
+    "comment";
+}
 *,
 html {
   box-sizing: border-box;
@@ -17,7 +48,6 @@ html {
   padding: 0;
   /* position: relative; */
   height: 100%;
-  width: 100%;
 }
 
 body {
